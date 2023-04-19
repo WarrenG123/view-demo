@@ -1,11 +1,17 @@
 const conditionalRendering = {
   data() {
     return { 
-      programs: {
-        vacist:true,
-        catalyst:true,
-        bootcamp:true
-      } 
+     program:"catalys",
+     condition:"true",
+      TvOn:"true"
+    };
+  },
+  methods: {
+    toggleSwitch() {
+      this.condition = !this.condition;
+    },
+    toggleTv() {
+      this.Tv = !this.Tv
     }
   }
 } 

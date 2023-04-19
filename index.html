@@ -19,15 +19,15 @@
                     <div>
                         <h4>
                             <small class="text-muted">Preview: </small>
-                            <small >John Doe, jdoe@domain.tld</small>
+                            <small >{{student.firstName}} {{student.lastName}}, {{student.email}}</small>
                         </h4>    
                     </div>
 
                     <div>
-                        <input class="form-control mgn-btm-10" type="text" placeholder="First Name" aria-label="first name">
-                        <input class="form-control mgn-btm-10" type="text" placeholder="Last Name" aria-label="last name">
-                        <input class="form-control mgn-btm-10" type="email" placeholder="Email" aria-label="email">
-                        <button type="button" class="btn btn-primary mgn-btm-10"> Register </button>
+                        <input v-model="student.firstName" class="form-control mgn-btm-10" type="text" placeholder="First Name" aria-label="first name">
+                        <input v-model="student.lastName" class="form-control mgn-btm-10" type="text" placeholder="Last Name" aria-label="last name">
+                        <input v-model="student.email"class="form-control mgn-btm-10" type="email" placeholder="Email" aria-label="email">
+                        <button @click="registerStudent" type="button" class="btn btn-primary mgn-btm-10"> Register </button>
                     </div>
                 </div>
                 <div class="col">
@@ -42,19 +42,25 @@
                               </tr>
                             </thead>
                             <tbody>
+                              <tr v-for="(student, index) in students" key="index">
+                                <th scope="row">{{index + 1}}</th>
+                                <td>{{student.firstName}}</td>
+                                <td>{{student.lastName}}</td>
+                                <td>{{student.email}}</td>
+                              </tr>
                               <!-- <tr v-for="(member, index) in students">
                                 <th scope="row">{{index+1}}</th>
                                 <td>{{member.firstName}}</td>
                                 <td>{{member.lastName}}</td>
                                 <td>{{member.email}}</td>
                               </tr> -->
-                              <tr>
+                              <!-- <tr>
                                 <th scope="row">1</th>
                                 <td>John</td>
                                 <td>Doe</td>
                                 <td>jdoe@domain.tld</td>
-                              </tr>
-                              <tr>
+                              </tr> -->
+                              <!-- <tr>
                                 <th scope="row">2</th>
                                 <td>Jackson</td>
                                 <td>Ssenengo</td>
@@ -65,14 +71,14 @@
                                 <td>Jane</td>
                                 <td>Doe</td>
                                 <td>janed@domain.tld</td>
-                              </tr>
+                              </tr> -->
                             </tbody>
                           </table>                    
                             
                     </div>
                 </div>
                 <hr/>
-                <a href="https://www.refactory.ug/">refactory</a>
+                <a v-bind:href=" refactoryLink">refactory</a>
           </div>
     </div> 
     
